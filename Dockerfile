@@ -15,7 +15,7 @@ RUN npm config set registry http://registry.npmjs.org
 RUN npm config set strict-ssl false
 
 #RUN npm install -g @angular/cli
-RUN npm install npm@7 --legacy-peer-deps
+RUN npm install
 COPY . .
 RUN npm run build
 
