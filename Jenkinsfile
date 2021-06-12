@@ -5,14 +5,14 @@ pipeline {
     stage('Build') {
      steps {
             echo 'Building...'
-            npm config rm proxy
-            npm config rm proxy --global
-            npm config rm https-proxy
-            npm config rm https-proxy --global
-            npm config rm registry
-            npm config set registry http://registry.npmjs.org
-            config set strict-ssl false
-            yarn install
+            sh'npm config rm proxy'
+            sh'npm config rm proxy --global'
+            sh'npm config rm https-proxy'
+            sh'npm config rm https-proxy --global'
+            sh'npm config rm registry'
+            sh'npm config set registry http://registry.npmjs.org'
+            sh'config set strict-ssl false'
+            sh'yarn install'
      }
    }
    
