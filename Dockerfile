@@ -14,7 +14,7 @@ RUN npm config rm registry
 RUN npm config set registry http://registry.npmjs.org
 RUN npm config set strict-ssl false
 
-#RUN npm install -g @angular/cli
+##RUN npm install -g @angular/cli
 RUN yarn install
 COPY . .
 RUN npm run build
