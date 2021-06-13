@@ -37,8 +37,13 @@ pipeline {
             sh'cd /var/jenkins_home/workspace/react-app-pipeline/build && zip -r my-react-app-${BUILD_ID}.zip *'
             sh'curl -u jenkins:AP6hjjyWS6Ngm8a692iEvRk6TVa -T my-react-app-${BUILD_ID}.zip "https://icvs.jfrog.io/artifactory/icvs-generic-local/my-react-app-${BUILD_ID}.zip"'
      }
+       
+           stage('send email') {
+     steps {
+            echo 'sending email...'
+            emailext body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+            Check console output at $BUILD_URL to view the results.''', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'ramy.r.kamel@gmail.com'     }
    }
   }
  }
-
-
