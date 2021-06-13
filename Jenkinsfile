@@ -25,8 +25,10 @@ pipeline {
    stage('Deploy') {
      steps {
             echo 'Deploying...'
-            sh'sudo docker stop react-container && sudo docker rm react-container ||  true'
-            sh'sudo docker run --rm --name react-container -it -d -p 8888:8888 react-img'
+            sh'sudo docker build -t nginx-img .'
+            sh'sudo docker stop nginx || true'            
+            sh'sudo docker rm nginx || true'            
+            sh'sudo docker run --rm --name nginx -it -d -p 8888:8888 nginx-img'
      }
    }
   }
