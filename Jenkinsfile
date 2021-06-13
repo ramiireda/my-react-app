@@ -35,7 +35,8 @@ pipeline {
      steps {
             echo 'Uploading...'
             sh'cd /var/jenkins_home/workspace/react-app-pipeline/build && zip -r my-react-app-${BUILD_ID}.zip *'
-            sh'curl -u jenkins:AP6hjjyWS6Ngm8a692iEvRk6TVa -T my-react-app-${BUILD_ID}.zip "https://icvs.jfrog.io/artifactory/icvs-generic-local/my-react-app-${BUILD_ID}.zip"'
+            sh'ls /var/jenkins_home/workspace/react-app-pipeline/build'
+            sh'cd /var/jenkins_home/workspace/react-app-pipeline/build && curl -u jenkins:AP6hjjyWS6Ngm8a692iEvRk6TVa -T my-react-app-${BUILD_ID}.zip "https://icvs.jfrog.io/artifactory/icvs-generic-local/my-react-app-${BUILD_ID}.zip"'
      }
      }
        
